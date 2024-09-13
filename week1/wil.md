@@ -62,9 +62,10 @@
 > #### 다층 퍼셉트론
 단층 퍼셉트론의 한계를 층을 늘리는 것으로 해결
 
-<img src="./img/단층퍼셉트론_XOR.png" title="단층퍼셉트론_XOR" width=40%> 
-<img src="./img/다층퍼셉트론_XOR.png" width=40%>
-
+<div style='display:flex;'>
+    <img src="./img/단층퍼셉트론_XOR.png" style="width:30%; margin-right:10px;"> 
+    <img src="./img/다층퍼셉트론_XOR.png" style="width:30%; margin-left:10px;">
+</div>
 왼쪽: 단층 퍼셉트론 / 오른쪽: 다층 퍼셉트론
 
 </br>

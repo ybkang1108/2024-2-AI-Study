@@ -23,7 +23,6 @@ _Image classification이라고 다 지도학습은 아니다!_
 
 2. 두 이미지의 차이 측정
     - L1 Distance: Manhattan Distance -> 좌표에 dependent
-
     - L2 Distance: Euclidean Distance -> 좌표에 independent
 
         <img src="./img/distance_L1_L2.png" width=40%>
@@ -32,11 +31,10 @@ _Image classification이라고 다 지도학습은 아니다!_
 
 ### Linear Classifier(선형분류기)
 
-> f(x, W) = Wx + b   
-</br>
-x: 이미지의 픽셀들을 flatten 시킨 입력   
-W: Weight Parameter, (클래스 개수) * (입력 데이터의 크기)   
-b: Bias, (클래스 개수) * 1, 독립적인 값
+> f(x, W) = Wx + b    
+> x: 이미지의 픽셀들을 flatten 시킨 입력     
+> W: Weight Parameter, (클래스 개수) * (입력 데이터의 크기)    
+> b: Bias, (클래스 개수) * 1, 독립적인 값   
 
 - 훈련 데이터에 대한 지식을 요약하여 가중치에 집어넣음
 - 가중치 행렬과 이미지 행렬의 계산으로 템플릿과 이미지 픽셀 사이의 유사성에 대한 점수를 매김
@@ -57,8 +55,48 @@ b: Bias, (클래스 개수) * 1, 독립적인 값
 - 형태의 변화(다른 포즈 등)
 - 일부 가려짐
 
-    -> _이러한 다양한 데이터셋에서도 분류할 수 있는 Robust 분류기를 만들어야 함_
+-> _이러한 다양한 데이터셋에서도 분류할 수 있는 Robust 분류기를 만들어야 함_
 
 </br>
 
-### **C**onvolutional **N**eural **N**etwork(합성곱 신경망)
+### **C**onvolutional **N**eural **N**etwork(CNN, 합성곱 신경망)
+> Convolutional Layer, Pooling Layer, Fully Connected Layer로 구성됨
+
+이미지의 2차원 구조를 그대로 유지하면서 분석
+
+<img src="./img/CNN구조.png" width=60%>
+
+-> 필터를 사용해서 feature map을 얻음
+
+```
+! Fully-connected multi layered Neural Network(FNN)
+- 입력 데이터를 1차원으로 펼쳐서 처리
+- 인접 픽셀간의 상관관계가 무시되어 이미지를 벡터화하는 과정에서 정보손실이 발생함
+```
+
+`Convolutional Layer`
+
+입력 이미지에 다양한 필터를 적용하여 특징을 추출함
+(각 필터는 특정 패턴을 감지하도록 학습)
+
+A Convolutional Layer = **convolution** + activation
+
+`Pooling Layer`
+
+Feature map의 크기를 줄이면서 특정 영역에서 가장 강한 특징만을 선택
+
+- max pooling: 영역에서 가장 큰 값 선택
+- average pooling: 영역의 평균값 계산
+
+    <img src="./img/pooling.png" width=50%>
+
+
+`Fully Connected Layer`
+
+이전 층의 모든 뉴런과 연결되어 추출된 특징들을 종합하여 최종 분류를 수행
+
+---
+
+<img src="./img/CNN_Layers.png" width=80%>
+
+-> Convolution Layer와 Pooling Layer가 반복된다!

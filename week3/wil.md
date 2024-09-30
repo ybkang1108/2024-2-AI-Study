@@ -68,32 +68,33 @@ _Image classification이라고 다 지도학습은 아니다!_
 
 -> 필터를 사용해서 feature map을 얻음
 
+</br>
+
 ```
 ! Fully-connected multi layered Neural Network(FNN)
 - 입력 데이터를 1차원으로 펼쳐서 처리
 - 인접 픽셀간의 상관관계가 무시되어 이미지를 벡터화하는 과정에서 정보손실이 발생함
 ```
 
-`Convolutional Layer`
+</br>
 
-입력 이미지에 다양한 필터를 적용하여 특징을 추출함
+`Convolutional Layer` : 입력 이미지에 다양한 필터를 적용하여 특징을 추출함
 (각 필터는 특정 패턴을 감지하도록 학습)
 
 A Convolutional Layer = **convolution** + activation
 
-`Pooling Layer`
+</br>
 
-Feature map의 크기를 줄이면서 특정 영역에서 가장 강한 특징만을 선택
+`Pooling Layer` : Feature map의 크기를 줄이면서 특정 영역에서 가장 강한 특징만을 선택
 
 - max pooling: 영역에서 가장 큰 값 선택
 - average pooling: 영역의 평균값 계산
 
     <img src="./img/pooling.png" width=50%>
 
+</br>
 
-`Fully Connected Layer`
-
-이전 층의 모든 뉴런과 연결되어 추출된 특징들을 종합하여 최종 분류를 수행
+`Fully Connected Layer` : 이전 층의 모든 뉴런과 연결되어 추출된 특징들을 종합하여 최종 분류를 수행
 
 ---
 
